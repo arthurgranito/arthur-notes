@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Notes</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <header>
+        <h1>ArthurNotes</h1>
+        <div id="search-container">
+            <i class="bi bi-search"></i>
+            <input type="text" id="search-input" placeholder="Busque por uma nota">
+        </div>
+
+        <button id="export-notes">
+            Exportar CSV <i class="bi bi-download"></i>
+        </button>
+    </header>
+
+    <form id="adicionar-note-container">
+        <input type="text" id="note-content" placeholder="O que deseja anotar?">
+        <button type="submit" class="add-note"><i class="bi bi-plus-lg"></i></button>
+    </form>
+
+    <div id="notes-container">
+        
+    </div>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>
