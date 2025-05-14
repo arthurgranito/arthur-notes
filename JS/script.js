@@ -1,6 +1,6 @@
 const notesContainer = document.getElementById('notes-container');
 const noteInput = document.getElementById('note-content');
-const adicionarNote = document.getElementById('adicionar-note-container');
+const addNoteForm = document.getElementById('add-note-container');
 const searchInput = document.getElementById('search-input');
 const exportBtn = document.getElementById('export-notes')
 
@@ -45,7 +45,7 @@ const createNote = (id, content, fixed) => {
 
     const textArea = document.createElement('textarea');
     textArea.value = content;
-    textArea.placeholder = 'Adicione algum texto...';
+    textArea.placeholder = 'Add some text...';
     element.appendChild(textArea);
 
     textArea.addEventListener('keyup', (e) => {
@@ -78,7 +78,7 @@ const createNote = (id, content, fixed) => {
         copyNote(id);
     })
 
-    if(fixed){
+    if (fixed) {
         element.classList.add('fixed');
         pinIcon.className = "bi bi-pin-fill";
     }
@@ -145,7 +145,7 @@ const saveNotes = (notes) => {
 const searchNotes = (search) => {
     const searchResults = getNotes().filter(note => note.content.includes(search));
 
-    if(search !== ''){
+    if (search !== '') {
         cleanNotes();
         searchResults.forEach(note => {
             const noteElement = createNote(note.id, note.content, note.fixed)
@@ -161,12 +161,12 @@ const searchNotes = (search) => {
 
 const exportData = () => {
     const notes = getNotes();
-    
+
     const csvString = [
-        ["ID", "Conteúdo", "Fixado?"],
+        ["ID", "Content", "Fixed?"],
         ...notes.map((note) => [note.id, note.content, note.fixed])
     ].map(e => e.join(','))
-    .join('\n');
+        .join('\n');
 
     const element = document.createElement("a");
 
@@ -177,7 +177,7 @@ const exportData = () => {
     element.click();
 }
 
-adicionarNote.addEventListener('submit', (e) => {
+addNoteForm.addEventListener('submit', (e) => {
     e.preventDefault();
     addNote();
 })
